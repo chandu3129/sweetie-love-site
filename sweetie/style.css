@@ -1,0 +1,120 @@
+:root {
+  color-scheme: dark;
+  color: #111;
+  background: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #ffc6d4 0%, #fdf1f6 55%, #fff 100%);
+}
+
+.hero {
+  text-align: center;
+  padding: 40px 20px 0;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  letter-spacing: 0.06em;
+  color: #9b2c6f;
+}
+
+.hero .subtitle {
+  margin-top: 12px;
+  color: #5d3d6b;
+  font-size: 1.05rem;
+}
+
+main.card {
+  max-width: 720px;
+  margin: 20px auto 40px;
+  padding: 26px;
+  border-radius: 32px;
+  box-shadow: 0 24px 80px rgba(155, 44, 111, 0.16);
+  background: rgba(255, 255, 255, 0.94);
+}
+
+section {
+  margin-bottom: 24px;
+}
+
+h2 {
+  margin-bottom: 12px;
+  color: #9b2c6f;
+}
+
+p, li {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #3e2a3a;
+}
+
+ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.footer {
+  margin-top: 20px;
+  color: #6e4b64;
+}
+
+a {
+  color: #b03f82;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+form {
+  display: grid;
+  gap: 16px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  color: #5d375c;
+}
+
+input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 16px;
+  border: 1px solid #d69abf;
+  background: #fff;
+  color: #3e2a3a;
+  font-size: 1rem;
+}
+
+button {
+  width: 100%;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 20px;
+  background: #c53d83;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #a22e68;
+}
+
+.message {
+  min-height: 24px;
+  margin-top: 8px;
+  color: #a21d4b;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.96);
+}

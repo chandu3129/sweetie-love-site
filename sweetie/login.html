@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sweetie Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <h1>Sweetie, welcome</h1>
+    <p>This page is made for you by Chandu. Please login to open your special love note.</p>
+
+    <form id="loginForm">
+      <label>
+        Your name
+        <input type="text" name="username" placeholder="Sweetie" required>
+      </label>
+      <label>
+        Password
+        <input type="password" name="password" placeholder="lovechandu" required>
+      </label>
+      <button type="submit">Login</button>
+    </form>
+
+    <div id="message" class="message"></div>
+    <p class="hint">Use <strong>Sweetie</strong> and password <strong>lovechandu</strong>.</p>
+    <p><a href="../index.html">Back to portfolio</a></p>
+  </main>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    const message = document.getElementById('message');
+
+    function showError(text) {
+      message.textContent = text;
+    }
+
+    function validateLocally(username, password) {
+      return typeof username === 'string' && username.trim().toLowerCase() === 'sweetie' && password === 'lovechandu';
+    }
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      message.textContent = '';
+
+      const formData = new FormData(form);
+      const username = formData.get('username');
+      const password = formData.get('password');
+
+      try {
+        const response = await fetch('/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password })
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          if (result.success) {
+            window.location.href = result.redirect;
+            return;
+          }
+          showError(result.message || 'Login failed.');
+          return;
+        }
+
+        throw new Error('Backend response not ok');
+      } catch (error) {
+        if (validateLocally(username, password)) {
+          window.location.href = '/sweetie/index.html';
+          return;
+        }
+        showError('Login failed. Enter name Sweetie and password lovechandu.');
+</html>
